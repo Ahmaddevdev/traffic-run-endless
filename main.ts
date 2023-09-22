@@ -1,3 +1,6 @@
+info.onCountdownEnd(function () {
+    game.gameOver(true)
+})
 info.onLifeZero(function () {
     game.gameOver(false)
 })
@@ -148,6 +151,7 @@ let mySprite = sprites.create(img`
     `, SpriteKind.Player)
 mySprite.setPosition(72, 76)
 controller.moveSprite(mySprite)
+info.startCountdown(30)
 game.onUpdate(function () {
     for (let value of sprites.allOfKind(SpriteKind.Enemy)) {
         if (value.isHittingTile(CollisionDirection.Left)) {
@@ -233,7 +237,7 @@ game.onUpdateInterval(2000, function () {
         . . . . . . . . . . . . . . . . 
         `, SpriteKind.Enemy).setPosition(150, 30)
 })
-game.onUpdateInterval(2000, function () {
+game.onUpdateInterval(3000, function () {
     sprites.create(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . 3 3 3 3 3 3 3 3 . . 
